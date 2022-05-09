@@ -20,9 +20,8 @@ public class PruebaAlumno {
 		Alumnos alumno;
 		
 		do {
-			
-			
-			lista.add(alumno = new Alumnos());
+						
+			alumno = new Alumnos();
 			
 			System.out.println("Inserte los datos del alumno: ");
 			System.out.println("Nombre: ");
@@ -33,6 +32,7 @@ public class PruebaAlumno {
 			System.out.println("DNI: ");
 			alumno.setDni(ent.nextLine());
 			
+			lista.add(alumno);
 			
 			System.out.println("¿Desea añadir otro alumno? (S/N)");
 			cont = ent.nextLine().toUpperCase().charAt(0);
@@ -40,6 +40,7 @@ public class PruebaAlumno {
 						
 		} while (cont == 'S');
 		
+
 		
 	}
 	
