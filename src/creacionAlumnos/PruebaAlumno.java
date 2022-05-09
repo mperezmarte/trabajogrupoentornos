@@ -9,8 +9,11 @@ import java.util.Scanner;
 public class PruebaAlumno {
 
 	public static void main(String[] args) {
-		// AquÃ­ va el menu con un switch --> Ari
-		ArrayList<Alumnos> listaLibros = new ArrayList<Alumnos>();
+		
+		ArrayList<Alumnos> listaAlumnos = new ArrayList<Alumnos>();
+		
+		// Aqui­ va el menu con un switch --> Ari
+		
 
 	}
 	
@@ -58,7 +61,7 @@ public class PruebaAlumno {
 	
 	public static void guardarAlumno(ArrayList<Alumnos> listaAlum) {
 		//Paola
-
+		
 		FileWriter fw=null;
 		BufferedWriter bw =null;
 		try {
