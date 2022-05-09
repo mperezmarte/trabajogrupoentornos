@@ -1,16 +1,18 @@
 package creacionAlumnos;
 
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PruebaAlumno {
 
 	public static void main(String[] args) {
-		// Aquí va el menú con un switch --> Ari
+		// AquÃ­ va el menÃº con un switch --> Ari
 
 	}
 	
-	//Aquí van los métodos
+	//AquÃ­ van los mÃ©todos
 	public static void addAlumno(ArrayList<Alumnos> lista) {
 		Scanner ent = new Scanner(System.in);
 		
@@ -31,15 +33,19 @@ public class PruebaAlumno {
 			dni = ent.nextLine();
 			
 			
-			System.out.println("¿Desea añadir otro alumno? (S/N)");
+			System.out.println("Â¿Desea aÃ±adir otro alumno? (S/N)");
 			cont = ent.nextLine().toUpperCase().charAt(0);
 			
 		} while (cont == 'S');
 		
 	}
 	
-	public static void deleteAlumno() {
+	public static void deleteAlumno(ArrayList<Alumnos> listaAlum) {
 		//Paola
+		Scanner consola = new Scanner(System.in);
+		System.out.println("Â¿QuÃ© libro quieres eleminar?");
+		listaAlum.remove(Integer.parseInt(consola.nextLine())-1);
+		mostrarAlumno(listaAlum);
 	
 	}
 	
@@ -48,8 +54,30 @@ public class PruebaAlumno {
 		
 	}
 	
-	public static void guardarAlumno() {
+	public static void guardarAlumno(ArrayList<Alumnos> listaAlum) {
 		//Paola
-	
+
+		FileWriter fw=null;
+		BufferedWriter bw =null;
+		try {
+			fw= new FileWriter("librosdos.csv");
+			bw = new BufferedWriter(fw);
+			for(Alumnos al:listaAlum) {
+			 bw.write(al.getNombre()+";"+al.getEdad()+";"+al.getDni());
+			 bw.newLine();
+		 }
+		 }catch(IOException ex) {
+			System.out.println(ex.getMessage());
+		}finally {
+			try{
+			if(bw !=null && fw !=null) {
+				bw.close();
+				fw.close();
+			}
+		}catch(Exception ex) {
+			System.out.println("Error al cerrar" );
+		}
+	}
+
 	}
 }
