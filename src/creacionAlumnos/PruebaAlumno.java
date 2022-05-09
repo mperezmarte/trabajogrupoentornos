@@ -15,26 +15,29 @@ public class PruebaAlumno {
 	//Aquí van los métodos
 	public static void addAlumno(ArrayList<Alumnos> lista) {
 		Scanner ent = new Scanner(System.in);
-		
-		String nombre = " ";
-		int edad = 0;
-		String dni = " ";
+	
 		char cont = ' ';
-		
+		Alumnos alumno;
 		
 		do {
 			
+			
+			lista.add(alumno = new Alumnos());
+			
 			System.out.println("Inserte los datos del alumno: ");
 			System.out.println("Nombre: ");
-			nombre = ent.nextLine();
+			alumno.setNombre(ent.nextLine());
 			System.out.println("Edad: ");
-			edad = ent.nextInt();
+			alumno.setEdad(ent.nextInt());
+			ent.nextLine();
 			System.out.println("DNI: ");
-			dni = ent.nextLine();
+			alumno.setDni(ent.nextLine());
 			
 			
 			System.out.println("¿Desea añadir otro alumno? (S/N)");
 			cont = ent.nextLine().toUpperCase().charAt(0);
+			
+			
 			
 		} while (cont == 'S');
 		
