@@ -37,9 +37,9 @@ public class PruebaAlumno {
 			System.out.println("¿Desea añadir otro alumno? (S/N)");
 			cont = ent.nextLine().toUpperCase().charAt(0);
 			
-			
-			
+						
 		} while (cont == 'S');
+		
 		
 	}
 	
