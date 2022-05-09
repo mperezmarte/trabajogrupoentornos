@@ -8,6 +8,17 @@ public class Alumnos {
 	private int edad;
 	private String dni;
 	
+	public Alumnos() {
+		nombre = "";
+		edad = 0;
+		dni = "";
+	}
+	
+	public Alumnos(String nombre, int edad, String dni) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.dni = dni;
+	}
 	
 	public String getNombre() {
 		return nombre;
