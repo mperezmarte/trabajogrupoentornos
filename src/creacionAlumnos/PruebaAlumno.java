@@ -5,6 +5,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import pruebaBiblioteca.Libros;
+
 
 public class PruebaAlumno {
 
@@ -27,24 +29,24 @@ public class PruebaAlumno {
 		do {
 			
 			
-			lista.add(alumno = new Alumnos());
+			Alumnos alumnoAd = new Alumnos();
 			
 			System.out.println("Inserte los datos del alumno: ");
 			System.out.println("Nombre: ");
-			alumno.setNombre(ent.nextLine());
+			alumnoAd.setNombre(ent.nextLine());
 			System.out.println("Edad: ");
-			alumno.setEdad(ent.nextInt());
+			alumnoAd.setEdad(ent.nextInt());
 			ent.nextLine();
 			System.out.println("DNI: ");
-			alumno.setDni(ent.nextLine());
+			alumnoAd.setDni(ent.nextLine());
 			
 			
 			System.out.println("¿Desea añadir otro alumno? (S/N)");
 			cont = ent.nextLine().toUpperCase().charAt(0);
 			
-						
+			
+			
 		} while (cont == 'S');
-		
 		
 	}
 	
