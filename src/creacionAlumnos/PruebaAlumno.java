@@ -5,14 +5,16 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class PruebaAlumno {
 
 	public static void main(String[] args) {
-		// Aquí va el menú con un switch --> Ari
+		// Aquí va el menu con un switch --> Ari
+		ArrayList<Alumnos> listaLibros = new ArrayList<Alumnos>();
 
 	}
 	
-	//Aquí van los métodos
+	//Aqui� van los metodos
 	public static void addAlumno(ArrayList<Alumnos> lista) {
 		Scanner ent = new Scanner(System.in);
 		
@@ -33,7 +35,7 @@ public class PruebaAlumno {
 			dni = ent.nextLine();
 			
 			
-			System.out.println("¿Desea añadir otro alumno? (S/N)");
+			System.out.println("�Desea a�adir otro alumno? (S/N)");
 			cont = ent.nextLine().toUpperCase().charAt(0);
 			
 		} while (cont == 'S');
@@ -43,7 +45,7 @@ public class PruebaAlumno {
 	public static void deleteAlumno(ArrayList<Alumnos> listaAlum) {
 		//Paola
 		Scanner consola = new Scanner(System.in);
-		System.out.println("¿Qué libro quieres eleminar?");
+		System.out.println("Alumno a eliminar");
 		listaAlum.remove(Integer.parseInt(consola.nextLine())-1);
 		mostrarAlumno(listaAlum);
 	
@@ -60,7 +62,7 @@ public class PruebaAlumno {
 		FileWriter fw=null;
 		BufferedWriter bw =null;
 		try {
-			fw= new FileWriter("librosdos.csv");
+			fw= new FileWriter("alumnos.csv");
 			bw = new BufferedWriter(fw);
 			for(Alumnos al:listaAlum) {
 			 bw.write(al.getNombre()+";"+al.getEdad()+";"+al.getDni());
