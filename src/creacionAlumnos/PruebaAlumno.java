@@ -1,29 +1,25 @@
 package creacionAlumnos;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import ArrayList.Amazon;
-
-
 public class PruebaAlumno {
 
 	public static void main(String[] args) {
+
 		//Ari
 		ArrayList<Alumnos> listaAlum = new ArrayList<Alumnos>();
 		Scanner ent = new Scanner(System.in);
 		int op = 0;
 		boolean continuar = true;
 		
-		
 		while(continuar) {
 		System.out.println("Elige una opcion: \n"
-				+ "1º) Añadir alumno \n" 					
-				+ "2º) Eliminar alumno \n" 
-				+ "3º) Mostrar alumno \n"
-				+ "4º) Guardar alumno \n"
-				+ "5º) Salir");
+				+ "1Âº) AÃ±adir alumno \n" 					
+				+ "2Âº) Eliminar alumno \n" 
+				+ "3Âº) Mostrar alumno \n"
+				+ "4Âº) Guardar alumno \n"
+				+ "5Âº) Salir");
 		
 		op = ent.nextInt();
 					
@@ -49,15 +45,40 @@ public class PruebaAlumno {
 		
 		
 	}
-	//Aquí van los métodos
-	public static void addAlumno() {
-		// Isma - igual que la clase de amachon
+	
+	//AquiÂ­ van los metodos
+	public static void addAlumno(ArrayList<Alumnos> lista) {
+		Scanner ent = new Scanner(System.in);
+	
+		char cont = ' ';
+		Alumnos alumno;
+		
+		do {
+			Alumnos alumnoAd = new Alumnos();	
+			alumno = new Alumnos();
+      
+			System.out.println("Inserte los datos del alumno: ");
+			System.out.println("Nombre: ");
+			alumnoAd.setNombre(ent.nextLine());
+			System.out.println("Edad: ");
+			alumnoAd.setEdad(ent.nextInt());
+			ent.nextLine();
+			System.out.println("DNI: ");
+			alumnoAd.setDni(ent.nextLine());
+			
+			lista.add(alumno);
+			
+			System.out.println("Â¿Desea aÃ±adir otro alumno? (S/N)");
+			cont = ent.nextLine().toUpperCase().charAt(0);
+			
+		} while (cont == 'S');
+
 	}
 	
 	public static void deleteAlumno(ArrayList<Alumnos> listaAlum) {
 		//Paola
 		Scanner consola = new Scanner(System.in);
-		System.out.println("¿Qué libro quieres eleminar?");
+		System.out.println("Alumno a eliminar");
 		listaAlum.remove(Integer.parseInt(consola.nextLine())-1);
 		mostrarAlumno(listaAlum);
 	
@@ -71,14 +92,13 @@ public class PruebaAlumno {
 				
 	}
 		
-	
 	public static void guardarAlumno(ArrayList<Alumnos> listaAlum) {
 		//Paola
-
+		
 		FileWriter fw=null;
 		BufferedWriter bw =null;
 		try {
-			fw= new FileWriter("librosdos.csv");
+			fw= new FileWriter("alumnos.csv");
 			bw = new BufferedWriter(fw);
 			for(Alumnos al:listaAlum) {
 			 bw.write(al.getNombre()+";"+al.getEdad()+";"+al.getDni());
