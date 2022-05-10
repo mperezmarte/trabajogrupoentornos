@@ -5,7 +5,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import pruebaBiblioteca.Libros;
 
 
 public class PruebaAlumno {
@@ -27,14 +26,9 @@ public class PruebaAlumno {
 		Alumnos alumno;
 		
 		do {
-
-			
-			
-			Alumnos alumnoAd = new Alumnos();
-
-						
+				
+			Alumnos alumnoAd = new Alumnos();		
 			alumno = new Alumnos();
-
 			
 			System.out.println("Inserte los datos del alumno: ");
 			System.out.println("Nombre: ");
