@@ -4,14 +4,51 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import ArrayList.Amazon;
+
 
 public class PruebaAlumno {
 
 	public static void main(String[] args) {
-		// Aquí va el menú con un switch --> Ari
-
+		//Ari
+		ArrayList<Alumnos> listaAlum = new ArrayList<Alumnos>();
+		Scanner ent = new Scanner(System.in);
+		int op = 0;
+		boolean continuar = true;
+		
+		
+		while(continuar) {
+		System.out.println("Elige una opcion: \n"
+				+ "1º) Añadir alumno \n" 					
+				+ "2º) Eliminar alumno \n" 
+				+ "3º) Mostrar alumno \n"
+				+ "4º) Guardar alumno \n"
+				+ "5º) Salir");
+		
+		op = ent.nextInt();
+					
+		switch(op) {
+			case 1: addAlumno(listaAlum);
+					break;	
+					
+			case 2: deleteAlumno(listaAlum);
+					break;
+					
+			case 3: mostrarAlumno(listaAlum);
+					break;
+					
+			case 4: guardarAlumno(listaAlum);
+					break;
+					
+			case 5: continuar = false;
+					System.out.println("Has salido del programa");
+					
+		}
+		
+		}
+		
+		
 	}
-	
 	//Aquí van los métodos
 	public static void addAlumno() {
 		// Isma - igual que la clase de amachon
@@ -25,11 +62,15 @@ public class PruebaAlumno {
 		mostrarAlumno(listaAlum);
 	
 	}
-	
-	public static void mostrarAlumno() {
-		//Ari - igual que la clase de amachon
-		
+	//Ari
+	public static void mostrarAlumno(ArrayList<Alumnos> listaAlum) {
+		for(Alumnos a : listaAlum ) {
+			System.out.println(a);
+			
+		}
+				
 	}
+		
 	
 	public static void guardarAlumno(ArrayList<Alumnos> listaAlum) {
 		//Paola
