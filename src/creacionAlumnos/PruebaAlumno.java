@@ -17,11 +17,11 @@ public class PruebaAlumno {
 		
 		while(continuar) {
 		System.out.println("Elige una opcion: \n"
-				+ "1Âº) Añadir alumno \n" 					
-				+ "2Âº) Eliminar alumno \n" 
-				+ "3Âº) Mostrar alumno \n"
-				+ "4Âº) Guardar alumno \n"
-				+ "5Âº) Salir");
+				+ "1º) Añadir alumno \n" 					
+				+ "2º) Eliminar alumno \n" 
+				+ "3º) Mostrar alumno \n"
+				+ "4º) Guardar alumno \n"
+				+ "5º) Salir");
 		
 		op = ent.nextInt();
 					
