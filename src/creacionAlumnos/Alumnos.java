@@ -20,6 +20,11 @@ public class Alumnos {
 		this.dni = dni;
 	}
 	
+	public Alumnos(String [] listaAl) {
+		this.nombre = listaAl[0];
+		this.edad = Integer.parseInt(listaAl[1]);
+		this.dni = listaAl[2];
+	}
 
 	public String getNombre() {
 		return nombre;
