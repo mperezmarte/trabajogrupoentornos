@@ -13,15 +13,15 @@ public class PruebaAlumno {
 		Scanner ent = new Scanner(System.in);
 		int op = 0;
 		boolean continuar = true;
-		cargarArchivo();
+		cargarArchivo(listaAlum);
 		
 		while(continuar) {
-		System.out.println("Elige una opcion: \n"
-				+ "1º) Añadir alumno \n" 					
-				+ "2º) Eliminar alumno \n" 
-				+ "3º) Mostrar alumno \n"
-				+ "4º) Guardar alumno \n"
-				+ "5º) Salir");
+		System.out.println("\nElige una opcion: \n"
+				+ "\t1º) Añadir alumno \n" 					
+				+ "\t2º) Eliminar alumno \n" 
+				+ "\t3º) Mostrar alumno \n"
+				+ "\t4º) Guardar alumno \n"
+				+ "\t5º) Salir");
 		
 		op = ent.nextInt();
 					
@@ -50,6 +50,39 @@ public class PruebaAlumno {
 	}
 	
 	//Aqui van los metodos
+	public static void cargarArchivo(ArrayList<Alumnos> listaAlum) {
+		FileReader fr= null;
+		BufferedReader br = null;
+		String linea=" ";
+		//LECTURA DEL FICHERO
+		try {
+			fr=new FileReader(".\\src\\creacionAlumnosalumnos.csv");
+			br=new BufferedReader(fr);
+			
+			while(br.ready()) {
+				linea = br.readLine();
+		
+				listaAlum.add(new Alumnos(linea.split(";")));
+			};
+
+	
+		}catch(FileNotFoundException ex) {
+			System.out.println("Fichero no encontrado");
+		}catch(IOException ex) {
+			System.out.println("Error de E/S");
+		}
+		
+		finally {
+			if(br != null) {
+				try{
+					br.close();
+				}catch(IOException ex){
+					System.out.println(ex.getMessage());
+				}
+			}
+		}
+	}
+	
 	public static void addAlumno(ArrayList<Alumnos> lista) {
 		Scanner ent = new Scanner(System.in);
 		char cont = ' ';
