@@ -1,34 +1,63 @@
 package creacionAlumnos;
-
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
 public class PruebaAlumno {
 
 	public static void main(String[] args) {
-		
-		ArrayList<Alumnos> listaAlumnos = new ArrayList<Alumnos>();
-		
-		// Aqui­ va el menu con un switch --> Ari
-		
 
+		//Ari
+		ArrayList<Alumnos> listaAlum = new ArrayList<Alumnos>();
+		Scanner ent = new Scanner(System.in);
+		int op = 0;
+		boolean continuar = true;
+		cargarArchivo();
+		
+		while(continuar) {
+		System.out.println("Elige una opcion: \n"
+				+ "1Âº) Añadir alumno \n" 					
+				+ "2Âº) Eliminar alumno \n" 
+				+ "3Âº) Mostrar alumno \n"
+				+ "4Âº) Guardar alumno \n"
+				+ "5Âº) Salir");
+		
+		op = ent.nextInt();
+					
+		switch(op) {
+			case 1: addAlumno(listaAlum);
+					break;	
+					
+			case 2: deleteAlumno(listaAlum);
+					break;
+					
+			case 3: mostrarAlumno(listaAlum);
+					break;
+					
+			case 4: guardarAlumno(listaAlum);
+				continuar = false;
+				System.out.println("Has salido del programa");
+					break;
+			default: System.out.println("Opción no valida");
+					
+					
+		}
+		
+		}
+		
+		
 	}
 	
-	//Aqui­ van los metodos
+	//Aqui van los metodos
 	public static void addAlumno(ArrayList<Alumnos> lista) {
 		Scanner ent = new Scanner(System.in);
-	
 		char cont = ' ';
 		Alumnos alumno;
 		
 		do {
-				
-			Alumnos alumnoAd = new Alumnos();		
-			alumno = new Alumnos();
+
+			Alumnos alumnoAd = new Alumnos();	
 			
 			System.out.println("Inserte los datos del alumno: ");
 			System.out.println("Nombre: ");
@@ -39,12 +68,10 @@ public class PruebaAlumno {
 			System.out.println("DNI: ");
 			alumnoAd.setDni(ent.nextLine());
 			
-			lista.add(alumno);
+			lista.add(alumnoAd);
 			
 			System.out.println("¿Desea añadir otro alumno? (S/N)");
 			cont = ent.nextLine().toUpperCase().charAt(0);
-			
-			
 			
 		} while (cont == 'S');
 
@@ -58,22 +85,29 @@ public class PruebaAlumno {
 		mostrarAlumno(listaAlum);
 	
 	}
-	
-	public static void mostrarAlumno() {
-		//Ari - igual que la clase de amachon
-		
+	//Ari
+	public static void mostrarAlumno(ArrayList<Alumnos> listaAlum) {
+		if(listaAlum.isEmpty()) {
+			System.out.println("No hay ningún alumnos todavía\n");
+		}else {
+			for(Alumnos a : listaAlum ) {
+				System.out.println(a);
+				
+			}
+		}
+				
 	}
-	
+		
 	public static void guardarAlumno(ArrayList<Alumnos> listaAlum) {
 		//Paola
 		
 		FileWriter fw=null;
 		BufferedWriter bw =null;
 		try {
-			fw= new FileWriter("alumnos.csv");
+			fw= new FileWriter(".\\src\\creacionAlumnosalumnos.csv");
 			bw = new BufferedWriter(fw);
 			for(Alumnos al:listaAlum) {
-			 bw.write(al.getNombre()+";"+al.getEdad()+";"+al.getDni());
+			 bw.write(al.getNombre()+";"+al.getEdad()+" años;"+al.getDni());
 			 bw.newLine();
 		 }
 		 }catch(IOException ex) {
