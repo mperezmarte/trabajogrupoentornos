@@ -13,7 +13,7 @@ public class PruebaAlumno {
 		Scanner ent = new Scanner(System.in);
 		int op = 0;
 		boolean continuar = true;
-		cargarArchivo(listaAlum);
+		
 		
 		while(continuar) {
 		System.out.println("\nElige una opcion: \n"
@@ -120,6 +120,7 @@ public class PruebaAlumno {
 	}
 	//Ari
 	public static void mostrarAlumno(ArrayList<Alumnos> listaAlum) {
+		cargarArchivo(listaAlum);
 		if(listaAlum.isEmpty()) {
 			System.out.println("No hay ningún alumnos todavía\n");
 		}else {
