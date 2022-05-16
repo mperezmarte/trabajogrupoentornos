@@ -47,7 +47,7 @@ public class Alumnos {
 	
 	@Override
 	public String toString() {
-		return "Alumno: " + "\n\t" + "Nombre: " + getNombre() + "\n\t" + "Edad: " + getDni() + "\n\t" + "DNI: " + getDni();
+		return "Alumno: " + "\n\t" + "Nombre: " + getNombre() + "\n\t" + "Edad: " + getEdad() + "\n\t" + "DNI: " + getDni();
 	}
 	
 	

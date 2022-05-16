@@ -4,24 +4,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+
 public class PruebaAlumno {
 
 	public static void main(String[] args) {
 
 		//Ari
 		ArrayList<Alumnos> listaAlum = new ArrayList<Alumnos>();
+		cargar(listaAlum);
 		Scanner ent = new Scanner(System.in);
 		int op = 0;
 		boolean continuar = true;
-		
+
 		
 		while(continuar) {
 		System.out.println("\nElige una opcion: \n"
 				+ "\t1º) Añadir alumno \n" 					
 				+ "\t2º) Eliminar alumno \n" 
 				+ "\t3º) Mostrar alumno \n"
-				+ "\t4º) Guardar alumno \n"
-				+ "\t5º) Salir");
+				+ "\t4º) Salir y guardar");
 		
 		op = ent.nextInt();
 					
@@ -50,37 +51,37 @@ public class PruebaAlumno {
 	}
 	
 	//Aqui van los metodos
-	public static void cargarArchivo(ArrayList<Alumnos> listaAlum) {
+	public static void cargar(ArrayList<Alumnos> listaAlum) {
 		FileReader fr= null;
 		BufferedReader br = null;
 		String linea=" ";
-		//LECTURA DEL FICHERO
+		
 		try {
-			fr=new FileReader(".\\src\\creacionAlumnosalumnos.csv");
-			br=new BufferedReader(fr);
-			
+		fr=new FileReader("creacionalumnos.csv");
+		br=new BufferedReader(fr);
+		br.readLine();
 			while(br.ready()) {
 				linea = br.readLine();
-		
 				listaAlum.add(new Alumnos(linea.split(";")));
-			};
+				
+			}
 
 	
-		}catch(FileNotFoundException ex) {
-			System.out.println("Fichero no encontrado");
+		}		catch(FileNotFoundException ex) {
+				System.out.println("Fichero no encontrado");
 		}catch(IOException ex) {
-			System.out.println("Error de E/S");
+				System.out.println("Error de E/S");
 		}
-		
-		finally {
-			if(br != null) {
-				try{
-					br.close();
-				}catch(IOException ex){
-					System.out.println(ex.getMessage());
+			
+			finally {
+				if(br != null) {
+					try{
+						br.close();
+					}catch(IOException ex){
+						System.out.println(ex.getMessage());
+					}
 				}
 			}
-		}
 	}
 	
 	public static void addAlumno(ArrayList<Alumnos> lista) {
@@ -96,8 +97,7 @@ public class PruebaAlumno {
 			System.out.println("Nombre: ");
 			alumnoAd.setNombre(ent.nextLine());
 			System.out.println("Edad: ");
-			alumnoAd.setEdad(ent.nextInt());
-			ent.nextLine();
+			alumnoAd.setEdad(Integer.parseInt(ent.nextLine()));
 			System.out.println("DNI: ");
 			alumnoAd.setDni(ent.nextLine());
 			
@@ -120,7 +120,6 @@ public class PruebaAlumno {
 	}
 	//Ari
 	public static void mostrarAlumno(ArrayList<Alumnos> listaAlum) {
-		cargarArchivo(listaAlum);
 		if(listaAlum.isEmpty()) {
 			System.out.println("No hay ningún alumnos todavía\n");
 		}else {
@@ -138,10 +137,12 @@ public class PruebaAlumno {
 		FileWriter fw=null;
 		BufferedWriter bw =null;
 		try {
-			fw= new FileWriter(".\\src\\creacionAlumnosalumnos.csv");
+			fw= new FileWriter("creacionalumnos.csv");
 			bw = new BufferedWriter(fw);
+			bw.write("Nombre;"+"Edad;" +"DNI");
+			 bw.newLine();
 			for(Alumnos al:listaAlum) {
-			 bw.write(al.getNombre()+";"+al.getEdad()+" años;"+al.getDni());
+			 bw.write(al.getNombre()+";"+al.getEdad()+";"+al.getDni());
 			 bw.newLine();
 		 }
 		 }catch(IOException ex) {
